@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "preinstall": "pnpm dlx only-allow pnpm",
     "prepare": "husky",
     "lint-eslint": "eslint --max-warnings 0 '**/*.{js,cjs,ts,mts,tsx}'",
     "lint-eslint-debug": "DEBUG=eslint:cli-engine pnpm lint-eslint",
@@ -18,19 +19,18 @@
     "coverage": "vitest --coverage.enabled --coverage.provider=istanbul --coverage.all",
     "test": "vitest run",
     "test-watch": "vitest watch",
-    "test-bench": "vitest bench",
-    "setup-e2e": "vite-node test/e2e/setup/prepare.ts"
+    "test-bench": "vitest bench"
   },
   "dependencies": {
     "arktype": "2.0.0-rc.25",
     "ts-extras": "0.13.0",
-    "type-fest": "4.29.0",
+    "type-fest": "4.29.1",
     "valibot": "1.0.0-beta.9",
     "zod": "3.23.8"
   },
   "devDependencies": {
     "@alexilyaev/browserslist-config": "0.1.3",
-    "@alexilyaev/configs": "0.4.2",
+    "@alexilyaev/configs": "0.4.5",
     "@stylistic/eslint-plugin": "2.11.0",
     "@total-typescript/ts-reset": "0.6.1",
     "@types/eslint": "9.6.1",
@@ -48,9 +48,8 @@
     "husky": "9.1.7",
     "lint-staged": "15.2.10",
     "prettier": "3.4.1",
-    "typescript": "~5.6.3",
-    "vite": "6.0.1",
-    "vite-node": "2.1.6",
-    "vitest": "2.1.6"
+    "typescript": "~5.7.2",
+    "vite": "6.0.2",
+    "vitest": "2.1.7"
   }
 }
