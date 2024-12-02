@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "preinstall": "pnpm dlx only-allow pnpm",
+    "preinstall": "npx only-allow pnpm",
     "prepare": "husky",
     "lint-eslint": "eslint --max-warnings 0 '**/*.{js,cjs,ts,mts,tsx}'",
     "lint-eslint-debug": "DEBUG=eslint:cli-engine pnpm lint-eslint",
