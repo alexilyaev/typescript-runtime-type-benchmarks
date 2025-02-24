@@ -1,6 +1,5 @@
 {
   "name": "typescript-runtime-type-benchmarks",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -23,6 +22,7 @@
   },
   "dependencies": {
     "arktype": "2.0.0-rc.25",
+    "ts-essentials": "10.0.4",
     "ts-extras": "0.13.0",
     "type-fest": "4.29.1",
     "valibot": "1.0.0-beta.9",
@@ -51,5 +51,26 @@
     "typescript": "~5.7.2",
     "vite": "6.1.0",
     "vitest": "3.0.5"
-  }
+  },
+  "engines": {
+    "node": "^20.0.0"
+  },
+  "packageManager": "pnpm@9.11.0",
+  "private": true,
+  "keywords": [
+    "typescript",
+    "runtime",
+    "type",
+    "benchmark"
+  ],
+  "author": "Alex Ilyaev",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexilyaev/typescript-runtime-type-benchmarks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alexilyaev/typescript-runtime-type-benchmarks/issues"
+  },
+  "homepage": "https://github.com/alexilyaev/typescript-runtime-type-benchmarks#readme"
 }
