@@ -26,8 +26,8 @@ devDependencies:
     specifier: 0.1.3
     version: 0.1.3
   '@alexilyaev/configs':
-    specifier: 0.4.5
-    version: 0.4.5
+    specifier: 0.5.3
+    version: 0.5.3
   '@stylistic/eslint-plugin':
     specifier: 2.11.0
     version: 2.11.0(eslint@8.57.0)(typescript@5.7.2)
@@ -96,8 +96,8 @@ packages:
     engines: {node: '>=18.12.0'}
     dev: true
 
-  /@alexilyaev/configs@0.4.5:
-    resolution: {integrity: sha512-QhJC4JnTr3rdbcTDW7h3sIYtYmiBiIkE+swHUQgptivOm2Bezxo4NLzZOaqPro8NksNXAo9dJ7nOcOJNahJQ5Q==}
+  /@alexilyaev/configs@0.5.3:
+    resolution: {integrity: sha512-xpv9SnvsgYz8oxVsBBiB2z8nEzpckP+6IrS5xREBaCK41emuOVkHUyCQKnnByh6t8/8mz74VSAOATl3H7798Ow==}
     engines: {node: '>=18.12.0'}
     dev: true
 
