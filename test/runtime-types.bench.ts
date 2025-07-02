@@ -1,4 +1,6 @@
 import { z } from 'zod';
+import { z as z4 } from 'zod/v4';
+import { z as z4Mini } from 'zod/v4-mini';
 import { type } from 'arktype';
 import {
   maxLength,
@@ -32,6 +34,76 @@ describe('Runtime Type Checking', () => {
       stockId: z.coerce.number().positive(),
       shares: z.coerce.number().min(1),
       price: z.coerce.number().positive(),
+      transactionDate: z.string(),
+    });
+
+    const tickerResult = addStockFormSchema.safeParse(newTicker);
+
+    if (tickerResult.success) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+      tickerResult.data;
+    } else {
+      // eslint-disable-next-line no-console
+      console.log(tickerResult.error);
+    }
+
+    const addTransactionResult =
+      addTransactionFormSchema.safeParse(newTransaction);
+
+    if (addTransactionResult.success) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+      addTransactionResult.data;
+    } else {
+      // eslint-disable-next-line no-console
+      console.log(addTransactionResult.error);
+    }
+  });
+
+  bench('zod v4', () => {
+    const z = z4;
+    const addStockFormSchema = z.object({
+      ticker: z.string().min(1, 'Too short').max(20, 'Too long'),
+    });
+    const addTransactionFormSchema = z.object({
+      stockId: z.coerce.number().positive(),
+      shares: z.coerce.number().min(1),
+      price: z.coerce.number().positive(),
+      transactionDate: z.string(),
+    });
+
+    const tickerResult = addStockFormSchema.safeParse(newTicker);
+
+    if (tickerResult.success) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+      tickerResult.data;
+    } else {
+      // eslint-disable-next-line no-console
+      console.log(tickerResult.error);
+    }
+
+    const addTransactionResult =
+      addTransactionFormSchema.safeParse(newTransaction);
+
+    if (addTransactionResult.success) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+      addTransactionResult.data;
+    } else {
+      // eslint-disable-next-line no-console
+      console.log(addTransactionResult.error);
+    }
+  });
+
+  bench('zod v4 Mini', () => {
+    const z = z4Mini;
+    const addStockFormSchema = z.object({
+      ticker: z
+        .string()
+        .check(z.minLength(1, 'Too short'), z.maxLength(20, 'Too long')),
+    });
+    const addTransactionFormSchema = z.object({
+      stockId: z.coerce.number().check(z.positive()),
+      shares: z.coerce.number().check(z.minimum(1)),
+      price: z.coerce.number().check(z.positive()),
       transactionDate: z.string(),
     });
 
