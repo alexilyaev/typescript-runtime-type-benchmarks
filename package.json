@@ -5,6 +5,11 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky",
+    "clean": "rm -rf dist",
+    "start": "vite-node src/main.ts",
+    "dev": "vite",
+    "build": "vite build",
+    "watch": "vite build --watch",
     "lint-eslint": "eslint --max-warnings 0 '**/*.{js,cjs,ts,mts,tsx}'",
     "lint-eslint-debug": "DEBUG=eslint:cli-engine pnpm lint-eslint",
     "lint-eslint-summary": "pnpm lint-eslint -f summary",
@@ -22,6 +27,7 @@
   },
   "dependencies": {
     "arktype": "2.1.20",
+    "semver": "7.7.2",
     "ts-essentials": "10.0.4",
     "ts-extras": "0.13.0",
     "type-fest": "4.29.1",
@@ -35,10 +41,12 @@
     "@total-typescript/ts-reset": "0.6.1",
     "@types/eslint": "9.6.1",
     "@types/node": "20",
+    "@types/semver": "7.7.0",
     "@typescript-eslint/eslint-plugin": "8.16.0",
     "@typescript-eslint/parser": "8.16.0",
+    "@vitejs/plugin-react": "4.6.0",
     "eslint": "8.57.0",
-    "eslint-config-ai": "3.6.5",
+    "eslint-config-ai": "3.6.7",
     "eslint-config-prettier": "9.1.0",
     "eslint-gitignore": "0.1.0",
     "eslint-import-resolver-typescript": "3.6.3",
@@ -48,9 +56,10 @@
     "husky": "9.1.7",
     "lint-staged": "15.2.10",
     "prettier": "3.4.1",
-    "typescript": "~5.7.2",
-    "vite": "6.1.0",
-    "vitest": "3.0.5"
+    "typescript": "~5.8.3",
+    "vite": "7.0.0",
+    "vite-node": "3.2.4",
+    "vitest": "3.2.4"
   },
   "engines": {
     "node": "^20.0.0"

@@ -3,6 +3,7 @@ const { readGitignoreFiles } = require('eslint-gitignore');
 const libsOrder = [
   // Prevent Prettier single line collapse
   'zod',
+  'zod/**',
   'zod-form-data',
   'date-fns/**',
   'date-fns-tz/**',
@@ -116,6 +117,14 @@ module.exports = {
       },
       rules: {
         'import/no-default-export': 'off',
+      },
+    },
+
+    {
+      files: ['src/main.ts'],
+      rules: {
+        // We just want to import a file in order to get build stats
+        'import/no-unassigned-import': 'off',
       },
     },
   ],

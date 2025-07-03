@@ -14,16 +14,7 @@ import {
   transform,
 } from 'valibot';
 import { bench, describe } from 'vitest';
-
-const newTicker = {
-  ticker: 'AAPL',
-};
-const newTransaction = {
-  stockId: '1',
-  shares: '100',
-  price: '533.33',
-  transactionDate: '2021-01-01',
-};
+import { newTicker, newTransaction } from 'src/common';
 
 describe('Runtime Type Checking', () => {
   bench('zod', () => {
