@@ -17,7 +17,7 @@ import { bench, describe } from 'vitest';
 import { newTicker, newTransaction } from 'src/common';
 
 describe('Runtime Type Checking', () => {
-  bench('zod', () => {
+  bench('zod v3', () => {
     const addStockFormSchema = z.object({
       ticker: z.string().min(1, 'Too short').max(20, 'Too long'),
     });

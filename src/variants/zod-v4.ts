@@ -1,5 +1,5 @@
 import { z } from 'zod/v4';
-import { newTicker, newTransaction } from './common';
+import { newTicker, newTransaction } from '../common';
 
 const addStockFormSchema = z.object({
   ticker: z.string().min(1, 'Too short123').max(20, 'Too long'),
@@ -14,19 +14,15 @@ const addTransactionFormSchema = z.object({
 const tickerResult = addStockFormSchema.safeParse(newTicker);
 
 if (tickerResult.success) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   tickerResult.data;
 } else {
-  // eslint-disable-next-line no-console
   console.log(tickerResult.error);
 }
 
 const addTransactionResult = addTransactionFormSchema.safeParse(newTransaction);
 
 if (addTransactionResult.success) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   addTransactionResult.data;
 } else {
-  // eslint-disable-next-line no-console
   console.log(addTransactionResult.error);
 }

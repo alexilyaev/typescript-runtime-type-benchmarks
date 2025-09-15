@@ -1,5 +1,5 @@
 import { type } from 'arktype';
-import { newTicker, newTransaction } from './common';
+import { newTicker, newTransaction } from '../common';
 
 // Using this makes the validation be 140x times slower
 // https://arktype.io/intro/adding-constraints/
@@ -29,19 +29,15 @@ const addTransactionFormSchema = type({
 const tickerResult = addStockFormSchema(newTicker);
 
 if (tickerResult instanceof type.errors) {
-  // eslint-disable-next-line no-console
   console.log(tickerResult.summary);
 } else {
-  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   tickerResult;
 }
 
 const addTransactionResult = addTransactionFormSchema(newTransaction);
 
 if (addTransactionResult instanceof type.errors) {
-  // eslint-disable-next-line no-console
   console.log(addTransactionResult.summary);
 } else {
-  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   addTransactionResult;
 }

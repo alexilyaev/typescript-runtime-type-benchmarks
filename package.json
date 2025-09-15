@@ -8,7 +8,7 @@
     "clean": "rm -rf dist",
     "start": "vite-node src/main.ts",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite-node infra/build.ts",
     "watch": "vite build --watch",
     "lint-eslint": "eslint --max-warnings 0 '**/*.{js,cjs,ts,mts,tsx}'",
     "lint-eslint-debug": "DEBUG=eslint:cli-engine pnpm lint-eslint",

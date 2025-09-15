@@ -100,6 +100,24 @@ module.exports = {
             ],
           },
         ],
+
+        // Make sure we only `import` packages that are defined in `package.json` `dependencies`
+        'import/no-extraneous-dependencies': [
+          'warn',
+          {
+            // Only allow these file patterns to import from `devDependencies`
+            devDependencies: [
+              './infra/*',
+              './*.{js,cjs}',
+              './.*.{js,cjs}',
+              './*.config.*',
+              '**/*.{spec,test,bench,benchmark}.ts',
+              '**/test/**',
+              '**/*.d.ts',
+              'dangerfile.ts',
+            ],
+          },
+        ],
       },
     },
 
@@ -121,10 +139,19 @@ module.exports = {
     },
 
     {
-      files: ['src/main.ts'],
+      files: ['src/build-entries/*.ts'],
       rules: {
         // We just want to import a file in order to get build stats
         'import/no-unassigned-import': 'off',
+      },
+    },
+
+    {
+      files: ['src/variants/*.ts'],
+      rules: {
+        // Keep the code examples clean
+        'no-console': 'off',
+        '@typescript-eslint/no-unused-expressions': 'off',
       },
     },
   ],
